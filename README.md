@@ -1,5 +1,5 @@
 # Letter Boxed Solver
 
-This solves NYTimes Letter Boxed in O(4n) or O(1) depending on how you look at it.
+This solves NYTimes Letter Boxed in O(1) time since the upper time complexity bound stays the same regardless of input.
 
 The game it solves: https://www.nytimes.com/puzzles/letter-boxed
