@@ -117,9 +117,8 @@ def BucketWords(fileName):
 # puzzle = LetterBoxPuzzle([['a','c','o'],['h','l','u'],['d','p','g'],['y','r','n']],buckets)
 
 if __name__ == '__main__':
-    buckets = BucketWords("popular.txt")
-    print("Words Bucketted")
     while True:
+        buckets = BucketWords("popular.txt")
         sides = []
         for i in range(4):
             print("Enter the words of side("+str(i)+"), with spaces between each letter")
@@ -127,7 +126,7 @@ if __name__ == '__main__':
         print(sides)
         puzzle = LetterBoxPuzzle(sides,buckets)
         #puzzle = LetterBoxPuzzle([['a', 'c', 'o'], ['h', 'l', 'u'], ['d', 'p', 'g'], ['y', 'r', 'n']], buckets)
-        removeCount = puzzle.CullBucketWords()
+        puzzle.CullBucketWords()
 
         print("Single(0) or All(1) Solutions?")
         solutionType = input()
@@ -139,3 +138,6 @@ if __name__ == '__main__':
             puzzle.Solve(singleSolution=False)
         puzzle.SortSolutions()
         print("Solution(s):",puzzle.solutions)
+        outFile = open("solutions.txt","w+")
+        outFile.write(str(puzzle.solutions))
+        outFile.close()
